@@ -88,7 +88,7 @@ public class TUserController {
 		return map;
 	}
 	
-	@RequestMapping("/redis")
+	/*@RequestMapping("/redis")
 	@ResponseBody
 	public Object redis(String key,String val){
 		Map<String,Object> map=new HashMap<String,Object>();
@@ -96,5 +96,5 @@ public class TUserController {
 		map.put("status", "设置redis成功");
 		map.put(key, redisService.get(key));
 		return map;
-	}
+	}*/
 }
