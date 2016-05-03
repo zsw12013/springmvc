@@ -97,7 +97,7 @@
 	</div>
 	
 	<table id="dg" title="My Users" class="easyui-datagrid" style="width:700px;height:250px"
-			url="get_users.php"
+			url="users"
 			toolbar="#toolbar" pagination="true"
 			rownumbers="true" fitColumns="true" singleSelect="true">
 		<thead>

@@ -9,6 +9,6 @@
 <body>
 	<h2>主页</h2>
 	<a href="admin/index">前往列表页》》</a><br>
-	<a href="admin/index">前往test页》》</a>
+	<a href="test/index">前往test页》》</a>
 </body>
 </html>
