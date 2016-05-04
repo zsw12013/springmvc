@@ -30,7 +30,7 @@
 			<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="del()">删除</a>			
 		</div>
 		
-		<div id="dlg" class="easyui-dialog" data-options="iconCls:'icon-save',resizable:true,modal:true" style="width:400px;height:280px;padding:10px 20px"	closed="true" buttons="#dlg-buttons">
+		<div id="dlg" class="easyui-dialog" data-options="iconCls:'icon-save',resizable:true,modal:true" style="width:400px;height:180px;padding:10px 20px"	closed="true" buttons="#dlg-buttons">
 			<form id="fm" method="post">
 				<div style="margin-bottom: 10px;">
 					<label for="name">用户名:</label>

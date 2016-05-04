@@ -10,6 +10,8 @@
 	 <link rel="stylesheet" type="text/css" href="http://www.w3cschool.cc/try/jeasyui/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="http://www.w3cschool.cc/try/jeasyui/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="http://www.w3cschool.cc/try/jeasyui/demo/demo.css">
+    <script type="text/javascript" src="../resource/commons/js/commons.js"></script>
+	
 	<style type="text/css">
 		#fm{
 			margin:0;
@@ -36,16 +38,16 @@
 	<script type="text/javascript">
 		var url;
 		function newUser(){
-			$('#dlg').dialog('open').dialog('setTitle','New User');
+			$('#dlg').dialog('open').dialog('setTitle','新建用户');
 			$('#fm').form('clear');
-			url = 'save_user.php';
+ 			url =ctx+'/test/insert';
 		}
 		function editUser(){
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
 				$('#dlg').dialog('open').dialog('setTitle','Edit User');
 				$('#fm').form('load',row);
-				url = 'update_user.php?id='+row.id;
+				url = ctx+'/test/update?id='+row.id;
 			}
 		}
 		function saveUser(){
@@ -58,7 +60,7 @@
 					var result = eval('('+result+')');
 					if (result.success){
 						$('#dlg').dialog('close');		// close the dialog
-						$('#dg').datagrid('reload');	// reload the user data
+						 $('#dg').datagrid('reload');	// reload the user data
 					} else {
 						$.messager.show({
 							title: 'Error',
@@ -73,7 +75,7 @@
 			if (row){
 				$.messager.confirm('Confirm','Are you sure you want to remove this user?',function(r){
 					if (r){
-						$.post('remove_user.php',{id:row.id},function(result){
+						$.post(ctx+'/test/del',{id:row.id},function(result){
 							if (result.success){
 								$('#dg').datagrid('reload');	// reload the user data
 							} else {
@@ -96,6 +98,7 @@
 		<div>Click the buttons on datagrid toolbar to do crud actions.</div>
 	</div>
 	
+	
 	<table id="dg" title="My Users" class="easyui-datagrid" style="width:700px;height:250px"
 			url="users"
 			toolbar="#toolbar" pagination="true"
@@ -106,13 +109,18 @@
 				<th field="lastname" width="50">Last Name</th>
 				<th field="phone" width="50">Phone</th>
 				<th field="email" width="50">Email</th>
+				
+				<!--  <th data-options="field:'id',width:100">ID</th>
+	             <th data-options="field:'name',width:150">name</th>
+	                <th data-options="field:'nick',width:200,align:'right'">Nick</th>
+	                 -->
 			</tr>
 		</thead>
 	</table>
 	<div id="toolbar">
-		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">New User</a>
-		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>
-		<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeUser()">Remove User</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">添加</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">编辑</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeUser()">删除</a>
 	</div>
 	
 	<div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
